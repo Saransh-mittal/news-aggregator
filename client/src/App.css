@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Lato:wght@100;400;700&family=Roboto+Condensed:wght@400;700&family=Roboto+Mono:wght@100&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Roboto Condensed','Lato', sans-serif !important;
+  color: white;
+  background-color: #0f0d15;
+  background-image: linear-gradient(-180deg,#1a1527,#0e0c16 88%,#0e0c16 99%)
+}
+
+
+section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f0d15;
+  background-image: linear-gradient(-180deg,#1a1527,#0e0c16 88%,#0e0c16 99%);
+}
+.containers {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* overflow: hidden; */
+}
+.cardWrapper {
+  perspective: 1000px;
+  width: 100%;
+  width: 410px;
+  height: 230px;
+  z-index: 10;
+}
+.cards {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(80, 80, 80, 0.075);
+}
+.img-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: brightness(75%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.cardWrapper:hover .img-box::before
+{
+  opacity: 1;
+} 
+.img-box::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,rgb(0, 174, 255),#000);
+  z-index: 10;
+  opacity: 0;
+  transition: 0.5s;
+}
+.img-box img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.cardWrapper * {
+  pointer-events: none;
+}
+
+.numb{
+  font-weight: 100;
+  font-family: 'Courier Prime','Roboto Mono', monospace !important;
+}
+
+.project-meta{
+    top: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    height: 160px;
+    left: -100px; 
+    line-height: 1.2;
+    position: absolute;
+    transform: translateZ(30px);
+    width: 145px;
+    z-index: 1000;
+    transition: 0.5s;
+    letter-spacing: 2px;
+}
+.divider {
+  background-color: #fff;
+  height: 3px;
+  margin: 10px 1px 13px;
+  width: 100%;
+}
+
+ .contents{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+.cardWrapper:hover .project-meta{
+  left: -145px;
+  transition-delay: 1s;
+}  
+.cardWrapper:hover .contents h2
+{
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+.cardWrapper:hover .contents p
+{
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+.contents h2{
+  color: #fff;
+  transition: 0.5s;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  transform: translateY(800px);
+}
+
+.contents p{
+  color: #fff;
+  transition: 0.5s;
+  transform: translateY(800px);
+}
+@media only screen and (max-width: 1440px){
+  .contents p{
+    display: none;
+  }
+}
+@media only screen and (max-width: 1120px)
+{
+  .cardWrapper:hover .project-meta{
+    display: none;
+  }
+  .cardWrapper
+  {
+    width: 300px;
+    height: 170px;
+  }
+  .item:nth-child(5n) .cardWrapper{
+    height: 300px !important;
+    width: 150px !important;
+  }
+  .item:nth-child(3n) .cardWrapper{
+    height: 300px !important;
+    width: 150px !important;
+  }
+  .project-meta{
+    font-size: 0.9rem;
+  }
+  .contents h2{
+    font-size: 1.1rem;
+  }
+  .contents p{
+    font-size: 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 768px)
+{
+  .cardWrapper
+  {
+    max-width: 250px;
+    height: 130px;
+  }
+  .project-meta{
+    font-size: 0.8rem;
+  }
+  .contents h2{
+    font-size: 1rem;
+  }
+  .contents p{
+    display: none;
+    font-size: 0.5rem;
+  }
+  .item:nth-child(5n) .cardWrapper{
+    height: 300px !important;
+    width: 150px !important;
+  }
+  .item:nth-child(3n) .cardWrapper{
+    height: 300px !important;
+    width: 150px !important;
+  }
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 40px 0;
+}
+
+.timeline-container::after {
+  background-color: #5918df;
+  content: '';
+  position: absolute;
+  left: calc(20% - 2px); 
+  width: 1px;
+  height: 100%;
+}
+
+.timeline-item {
+  margin-top: 5rem;
+  margin-left: 7rem;
+  border: none;
+}
+
+.item:nth-child(2n) {
+  margin-top: 10rem !important;
+}
+.item:nth-child(3n) {
+  margin-top: 7rem !important;
+}
+.item:nth-child(5n) {
+  margin-top: 4rem !important;
+}
+.item:nth-child(5n) .cardWrapper{
+  height: 400px;
+  width: 250px;
+}
+.item:nth-child(3n) .cardWrapper{
+  height: 400px;
+  width: 250px;
+}
+
+@media only screen and (max-width: 1023px) {
+  .timeline-item-content {
+      max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .timeline-item-content,
+  .timeline-item:nth-child(odd) .timeline-item-content {
+      padding: 15px 10px;
+      text-align: center;
+      align-items: center;
+  }
+
+  .timeline-item-content .tag {
+      width: calc(100% - 10px);
+      text-align: center;
+  }
+
+  .timeline-item-content time {
+      margin-top: 20px;
+  }
+
+  .timeline-item-content a {
+      text-decoration: underline;
+  }
+
+  .timeline-item-content a::after {
+      display: none;
+  }
+}
+
+.timeline-container .intro{
+  margin-left: 23rem;
+  z-index: 10000;
+  .short{
+    max-width: 450px;
+    margin-left: 32rem;
+  }
+  .info {
+      max-width: 450px;
+    }
+}
+
+@media only screen and (max-width: 1023px){
+  .timeline-container .intro{
+    margin-left: 12rem;
+    .short {
+        max-width: 450px;
+        margin-left: 0;
+      }
+  }
+}
+
+@media only screen and (max-width: 767px){
+  .timeline-container .intro {
+      margin-left: 7rem;
+  
+      .short {
+        max-width: 450px;
+        margin-left: 0;
+      }
+    }
+}
